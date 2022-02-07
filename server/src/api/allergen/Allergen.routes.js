@@ -1,7 +1,7 @@
 const AllergenRoutes = require('express').Router()
 const { isAuth } = require('../../middlewares/auth')
 const upload = require('../../middlewares/file')
-const { postNewAllergen, getAllAllergens, getAllergen, getAllergenFilter} = require('./allergen.controller')
+const { postNewAllergen, getAllAllergens, getAllergen, getAllergenFilter} = require('./Allergen.controller')
 
 
 AllergenRoutes.get('/', getAllAllergens)
