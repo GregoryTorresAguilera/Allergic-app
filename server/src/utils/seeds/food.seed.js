@@ -1,7 +1,7 @@
 const mongoose = require("mongoose");
 
 const mongoDb =
-  "mongodb+srv://root:root@cluster0.bfoky.mongodb.net/Allergen-app?retryWrites=true&w=majority";
+  "mongodb+srv://root:root@cluster0.bfoky.mongodb.net/Allergic-app?retryWrites=true&w=majority";
 const FoodSchema = require("../../api/food/Food.model");
 const food = [
   {
