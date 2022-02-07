@@ -8,12 +8,17 @@ const userSchema = new mongoose.Schema({
     email: { type: String, trim: true, required: true, unique: true },
     password: { type: String, trim: true, required: true },
     phone: {type: Number, trim: true, required: true},
+<<<<<<< HEAD
     allergen: {type: String, trim: true, required: true}, //Schema.Types.ObjectId, ref: "allergen"
     userImage: {type: String, trim: true },
     userContact: {
+=======
+    //allergen: [{ type: Schema.Types.ObjectId, ref: "allergen"}],//revisar que coincida con lo de Alba
+    userImage: {type: String, trim: true,},
+    userEmergencyContact: {
+>>>>>>> 60eecc0f9b0b70b2ce42e15ab7156c4eb5446edb
         name: { type: String, trim: true},
         phone: { type: Number, trim: true},
-        email: { type: String, trim: true},
         assurance: {type: String, trim: true}
     //favoritos del scaner aplicar un array que recoja los alimentos scaneados.
     }
