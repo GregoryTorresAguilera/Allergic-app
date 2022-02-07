@@ -11,12 +11,33 @@ const postNewUser = async (req, res, next) => {
             return next(setError(404, 'Email existente'))
         }
         const userDB = await newUser.save()
-        return res.status(201).json({ name: userDB.name, email: userDB.email })
+        return res.status(201).json({ name: userDB.name, email: userDB.email, phone: userDB.phone, allergen: userDB.allergen })
 
     } catch (error) {
         return next(error)
     }
 }
+
+
+const patchUser = async (req, res, next) => {
+    try {
+        const { id } = req.params
+        const patchUser = new User(req.body)
+        patchUser._id = id
+        if (req.file) {
+            patchUser.img = req.file.path
+        }
+        const userDB = await User.findByIdAndUpdate(id, patchUser)
+        if (!userDB) {
+            return next(setError(404, 'User not found'))
+        }
+        if (userDB.img) deleteFile(userDB.img)
+        return res.status(200).json({ new: patchUser, old: userDB })
+    } catch (error) {
+        return next(setError(500, 'User Patch server error'))
+    }
+}
+
 
 const loginUser = async (req, res, next) => {
     try {
@@ -63,5 +84,5 @@ const getUser = async (req, res, next) => {
 }
 
 module.exports = {
-    postNewUser, loginUser, logoutUser, getUser
+    postNewUser, loginUser, logoutUser, getUser, patchUser
 }

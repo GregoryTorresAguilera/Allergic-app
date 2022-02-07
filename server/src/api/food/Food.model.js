@@ -8,6 +8,7 @@ const foodSchema = new Schema(
     img: { type: String, required: true },
     traces:{ type: String },
     allergens: [{ type: mongoose.Types.ObjectId, ref: 'Allergen'}],
+    barcode: { type: Number}
 
   },
   {

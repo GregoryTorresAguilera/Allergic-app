@@ -3,8 +3,8 @@ const { isAuth } = require('../../middlewares/auth')
 const upload = require('../../middlewares/file')
 const { postNewFood, getAllFoods, getFood } = require('./Food.controller')
 
-FoodRoutes.get('/',[isAuth], getAllFoods)
-FoodRoutes.get('/:id',[isAuth], getFood)
+FoodRoutes.get('/', getAllFoods)
+FoodRoutes.get('/:id', getFood)
 
 
 FoodRoutes.post('/', [isAuth], upload.single('img'), postNewFood)

@@ -39,9 +39,6 @@ app.use('/api/users', UserRoutes)
 app.use('/api/allergen', AllergenRoutes)
 app.use('/api/food', FoodRoutes)
 
-app.use('/', (req, res, next) => {
-    return res.json(documentation)
-})
 
 app.use('*', (req, res, next) => {
     return next(setError(404, 'Route not found'))
