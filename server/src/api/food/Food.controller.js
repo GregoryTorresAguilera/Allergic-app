@@ -5,10 +5,10 @@ const { setError } = require('../../utils/error/error')
 const postNewFood = async (req, res, next) => {
     try {
         const newFood = new Food()
-        newExpo.name = req.body.name
-        newExpo.allergens = req.body.allergens
+        newFood.name = req.body.name
+        newFood.allergens = req.body.allergens
         if (req.file) {
-            newExpo.img = req.file.path
+            newFood.img = req.file.path
         }
         const foodDB = await newFood.save()
         return res.status(201).json(foodDB)
@@ -19,7 +19,7 @@ const postNewFood = async (req, res, next) => {
 
 const getAllFoods = async (req, res, next) => {
     try {
-        const foodDB = await Expo.find().populate('allergen')
+        const foodDB = await Food.find().populate('allergen')
         res.status(200).json(foodDB)
     } catch (error) {
         return next(setError(500, 'Food failed server'))
@@ -66,7 +66,7 @@ const deleteFood= async (req, res, next) => {
         const { id } = req.params
         const foodDB = await Food.findByIdAndDelete(id)
         if (!foodDB) {
-            return next(setError(404, 'Expo not found'))
+            return next(setError(404, 'Food not found'))
         }
         if (foodDB.img) deleteFile(foodDB.img)
         return res.status(200).json(foodDB)

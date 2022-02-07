@@ -9,11 +9,10 @@ const userSchema = new mongoose.Schema({
     password: { type: String, trim: true, required: true },
     phone: {type: Number, trim: true, required: true},
     //allergen: [{ type: Schema.Types.ObjectId, ref: "allergen"}],//revisar que coincida con lo de Alba
-    userImage: {type: String, trim: true, required:true},
-    userContact: {
+    userImage: {type: String, trim: true,},
+    userEmergencyContact: {
         name: { type: String, trim: true},
         phone: { type: Number, trim: true},
-        email: { type: String, trim: true},
         assurance: {type: String, trim: true}
     }
 }, { timestamps: true })

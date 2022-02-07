@@ -6,7 +6,8 @@
   "scripts": {
     "start": "node index.js",
     "dev": "nodemon index.js",
-    "brands-seed": "node src/utils/seeds/brands.seed"
+    "allergic-seed": "node server/src/utils/seeds/allergic.seed.js",
+    "food-seed": "node server/src/utils/seeds/food.seed.js"
   },
   "author": "Pol, Alba, Ricardo, Samuel, Gregory",
   "license": "ISC",
