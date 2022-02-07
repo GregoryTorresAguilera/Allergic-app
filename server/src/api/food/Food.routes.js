@@ -8,7 +8,7 @@ FoodRoutes.get('/:id',[isAuth], getFood)
 
 
 FoodRoutes.post('/', [isAuth], upload.single('img'), postNewFood)
-FoodRoutes.patch('/:id', [isAuth], upload.single('img'), patchFood)
-FoodRoutes.delete('/:id', [isAuth], upload.single('img'), deleteFood)  
+//FoodRoutes.patch('/:id', [isAuth], upload.single('img'), patchFood)
+//FoodRoutes.delete('/:id', [isAuth], upload.single('img'), deleteFood)  
 
 module.exports = FoodRoutes

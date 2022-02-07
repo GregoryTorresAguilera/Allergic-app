@@ -79,6 +79,6 @@ module.exports = {
     postNewFood,
     getAllFoods,
     getFood,
-    patchExpo,
+    patchFood,
     deleteFood
 }

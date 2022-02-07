@@ -8,7 +8,7 @@ const userSchema = new mongoose.Schema({
     email: { type: String, trim: true, required: true, unique: true },
     password: { type: String, trim: true, required: true },
     phone: {type: Number, trim: true, required: true},
-    allergic: [{ type: Schema.Types.ObjectId, ref: "allergic"}],//revisar que coincida con lo de Alba
+    //allergic: [{ type: Schema.Types.ObjectId, ref: "allergic"}],//revisar que coincida con lo de Alba
     userImage: {type: String, trim: true, required:true},
     userContact: {
         name: { type: String, trim: true},
