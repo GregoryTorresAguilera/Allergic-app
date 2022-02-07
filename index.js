@@ -4,6 +4,7 @@ const cloudinary = require('cloudinary').v2
 const { setError } = require('./server/src/utils/error/error')
 const UserRoutes = require('./server/src/api/user/user.routes')
 const AllergicRoutes = require('./server/src/api/allergic/Allergic.routes')
+const FoodRoutes = require('./server/src/api/food/Food.routes')
 
 const { connectDb } = require('./server/src/utils/database/db');
 
@@ -34,3 +35,24 @@ app.use(express.json({
 }))
 app.use(express.urlencoded({ limit: '5mb', extended: true }))
 
+app.use('/api/users', UserRoutes)
+app.use('/api/allergic', AllergicRoutes)
+app.use('/api/food', FoodRoutes)
+
+app.use('/', (req, res, next) => {
+    return res.json(documentation)
+})
+
+app.use('*', (req, res, next) => {
+    return next(setError(404, 'Route not found'))
+})
+
+app.use((error, req, res, next) => {
+    return res.status(error.status || 500).json(error.message || 'Unexpected error')
+})
+
+app.disable('x-powered-by')
+
+app.listen(PORT, () => {
+    console.log(`listening on port ${PORT}`)
+})
