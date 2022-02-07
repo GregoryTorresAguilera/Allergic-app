@@ -1,14 +1,14 @@
-const AllergicRoutes = require('express').Router()
+const AllergenRoutes = require('express').Router()
 const { isAuth } = require('../../middlewares/auth')
 const upload = require('../../middlewares/file')
-const { postNewAllergic, getAllAllergics, getAllergic, getAllergicFilter} = require('./allergic.controller')
+const { postNewAllergen, getAllAllergens, getAllergen, getAllergenFilter} = require('./allergen.controller')
 
 
-AllergicRoutes.get('/', getAllAllergics)
-AllergicRoutes.get('/:id', getAllergic)
-AllergicRoutes.get('/filter/:type', getAllergicFilter)
-AllergicRoutes.post('/', postNewAllergic)
+AllergenRoutes.get('/', getAllAllergens)
+AllergenRoutes.get('/:id', getAllergen)
+AllergenRoutes.get('/filter/:type', getAllergenFilter)
+AllergenRoutes.post('/', postNewAllergen)
 //VehicleRoutes.patch('/:id', [isAuth], upload.single('img'), patchVehicle)
 //VehicleRoutes.delete('/:id', [isAuth], upload.single('img'), deleteVehicle)
 
-module.exports = AllergicRoutes
+module.exports = AllergenRoutes

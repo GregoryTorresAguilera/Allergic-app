@@ -6,7 +6,7 @@ const postNewFood = async (req, res, next) => {
     try {
         const newFood = new Food()
         newExpo.name = req.body.name
-        newExpo.allergics = req.body.allergics
+        newExpo.allergens = req.body.allergens
         if (req.file) {
             newExpo.img = req.file.path
         }
@@ -19,7 +19,7 @@ const postNewFood = async (req, res, next) => {
 
 const getAllFoods = async (req, res, next) => {
     try {
-        const foodDB = await Expo.find().populate('allergic')
+        const foodDB = await Expo.find().populate('allergen')
         res.status(200).json(foodDB)
     } catch (error) {
         return next(setError(500, 'Food failed server'))
@@ -29,7 +29,7 @@ const getAllFoods = async (req, res, next) => {
 const getFood = async (req, res, next) => {
     try {
         const { id } = req.params
-        const foodDB = await Food.findById(id).populate('allergic')
+        const foodDB = await Food.findById(id).populate('allergen')
         if (!foodDB) {
             return next(setError(404, 'Food not found'))
         }

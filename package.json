@@ -1,5 +1,5 @@
 {
-  "name": "allergic-app",
+  "name": "allergen-app",
   "version": "1.0.0",
   "description": "Node API Auth JWT & Cloudinary",
   "main": "index.js",

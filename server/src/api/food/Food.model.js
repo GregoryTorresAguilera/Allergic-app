@@ -7,7 +7,7 @@ const foodSchema = new Schema(
     name: { type: String, required: true  },
     img: { type: String, required: true },
     traces:{ type: String },
-    allergics: [{ type: mongoose.Types.ObjectId, ref: 'Allergic'}],
+    allergens: [{ type: mongoose.Types.ObjectId, ref: 'Allergen'}],
 
   },
   {

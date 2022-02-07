@@ -1,8 +1,8 @@
 const mongoose = require("mongoose");
 
-const mongoDb = "mongodb+srv://root:root@cluster0.bfoky.mongodb.net/Allergic-app?retryWrites=true&w=majority";
-const AllergicSchema = require("./allergic.model");
-const Allergic=[
+const mongoDb = "mongodb+srv://root:root@cluster0.i4g3x.mongodb.net/Allergen-app?retryWrites=true&w=majority";
+const AllergenSchema = require("./allergen.model");
+const Allergen=[
 {
 name:'gluten',
 img: 'https://res.cloudinary.com/dua6dm8ik/image/upload/v1644224750/alergenos/gluten_ad973s.png',
@@ -70,7 +70,7 @@ img: 'https://res.cloudinary.com/dua6dm8ik/image/upload/v1644226442/alergenos/ca
 
 ]
 
-const AllergicDocuments = Allergic.map((Allergic) => new AllergicSchema(Allergic));
+const AllergenDocuments = Allergen.map((Allergen) => new AllergenSchema(Allergen));
 
 mongoose
   .connect(mongoDb, {
@@ -78,15 +78,15 @@ mongoose
     useUnifiedTopology: true,
   })
   .then(async () => {
-    const allAllergics = await AllergicSchema.find();
-    if (allAllergic.length) {
-      await AllergicSchema.collection.drop();
+    const allAllergens = await AllergenSchema.find();
+    if (allAllergen.length) {
+      await AllergenSchema.collection.drop();
     }
   })
-  .catch((err) => console.log(`Error deleting Allergics: ${err}`))
+  .catch((err) => console.log(`Error deleting Allergens: ${err}`))
   .then(async () => {
-    await AllergicSchema.insertMany(AllergicDocuments);
-    console.log("Allergics successfully created");
+    await AllergenSchema.insertMany(AllergenDocuments);
+    console.log("Allergens successfully created");
   })
-  .catch((err) => console.log(`Error creating Allergics: ${err}`))
+  .catch((err) => console.log(`Error creating Allergens: ${err}`))
   .finally(() => mongoose.disconnect());

@@ -1,57 +1,57 @@
-const Allergic = require('./Allergic.model')
+const Allergen = require('./Allergen.model')
 const { setError } = require('../../utils/error/error')
 
 
- const postNewAllergic = async (req, res, next) => {
+ const postNewAllergen = async (req, res, next) => {
     try {
-        const newAllergic = new Allergic()
-        newAllergic.name = req.body.name
+        const newAllergen = new Allergen()
+        newAllergen.name = req.body.name
        
         if (req.file) {
-            newAllergic.img = req.file.path
+            newAllergen.img = req.file.path
         }
-        const allergicDB = await newAllergic.save()
-        return res.status(201).json(allergicDB)
+        const allergenDB = await newAllergen.save()
+        return res.status(201).json(allergenDB)
     } catch (error) {
-        return next(setError(500, 'Allergic not saved'))
+        return next(setError(500, 'Allergen not saved'))
     }
 } 
 
-const getAllAllergics = async (req, res, next) => {
+const getAllAllergens = async (req, res, next) => {
     try {
-        const allergicsDB = await Allergic.find()
-        res.status(200).json(allergicsDB)
+        const allergensDB = await Allergen.find()
+        res.status(200).json(allergensDB)
     } catch (error) {
-        return next(setError(500, 'Allergic failed server'))
+        return next(setError(500, 'Allergen failed server'))
     }
 }
 
-const getAllergic = async (req, res, next) => {
+const getAllergen = async (req, res, next) => {
     try {
         const { id } = req.params
-        const allergicDB = await Allergic.findById(id)
-        if (!allergicDB) {
-            return next(setError(404, 'Allergic not found'))
+        const allergenDB = await Allergen.findById(id)
+        if (!allergenDB) {
+            return next(setError(404, 'Allergen not found'))
         }
-        return res.status(200).json(allergicDB)
+        return res.status(200).json(allergenDB)
     } catch (error) {
-        return next(setError(500, 'Allergic server error'))
+        return next(setError(500, 'Allergen server error'))
     }
 }
 
-const getAllergicFilter = async (req, res, next) => {
+const getAllergenFilter = async (req, res, next) => {
     const { type } = req.params
     try {
         console.log(type);
-        const allergicDB = await Allergic.find({
+        const allergenDB = await Allergen.find({
             type
         })/* .populate('vehicles') */
-        if (!allergicDB) {
+        if (!allergenDB) {
             return next(setError(404, ` ${id} not found`))
         }
-        return res.status(200).json(allergicDB)
+        return res.status(200).json(allergenDB)
     } catch (error) {
-        return next(setError(500, 'Allergics server error'))
+        return next(setError(500, 'Allergens server error'))
     }
 }
 
@@ -60,9 +60,9 @@ const getAllergicFilter = async (req, res, next) => {
 
 
 module.exports = {
-    getAllergicFilter,
-    postNewAllergic,
-    getAllAllergics,
-    getAllergic,
+    getAllergenFilter,
+    postNewAllergen,
+    getAllAllergens,
+    getAllergen,
     
 }

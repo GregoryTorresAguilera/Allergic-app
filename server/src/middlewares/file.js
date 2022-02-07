@@ -6,7 +6,7 @@ const { CloudinaryStorage } = require('multer-storage-cloudinary');
 const storage = new CloudinaryStorage({
     cloudinary: cloudinary,
     params: {
-        folder: 'Allergic',
+        folder: 'Allergen',
         allowedFormats: ["jpg", "png", 'jpeg', 'gif']
     }
 })

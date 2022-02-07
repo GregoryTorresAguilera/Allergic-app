@@ -3,7 +3,7 @@ const cors = require('cors');
 const cloudinary = require('cloudinary').v2
 const { setError } = require('./server/src/utils/error/error')
 const UserRoutes = require('./server/src/api/user/user.routes')
-const AllergicRoutes = require('./server/src/api/allergic/Allergic.routes')
+const AllergenRoutes = require('./server/src/api/allergen/Allergen.routes')
 const FoodRoutes = require('./server/src/api/food/Food.routes')
 
 const { connectDb } = require('./server/src/utils/database/db');
@@ -36,7 +36,7 @@ app.use(express.json({
 app.use(express.urlencoded({ limit: '5mb', extended: true }))
 
 app.use('/api/users', UserRoutes)
-app.use('/api/allergic', AllergicRoutes)
+app.use('/api/allergen', AllergenRoutes)
 app.use('/api/food', FoodRoutes)
 
 app.use('/', (req, res, next) => {

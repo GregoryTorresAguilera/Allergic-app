@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
-const AllergicSchema = new Schema({
+const AllergenSchema = new Schema({
     name: { type: String, required: true, trim: true },
     img: { type: String, required: true, trim: true },
     
@@ -9,5 +9,5 @@ const AllergicSchema = new Schema({
 }, { timestamp: true }
 )
 
-const Allergic = mongoose.model('allergic', AllergicSchema)
-module.exports = Allergic
+const Allergen = mongoose.model('allergen', AllergenSchema)
+module.exports = Allergen
