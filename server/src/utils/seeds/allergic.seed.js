@@ -1,7 +1,7 @@
 const mongoose = require("mongoose");
 
 const mongoDb = "mongodb+srv://root:root@cluster0.i4g3x.mongodb.net/Allergen-app?retryWrites=true&w=majority";
-const AllergenSchema = require("./allergen.model");
+const AllergenSchema = require("../../api/allergen/Allergen.model");
 const Allergen=[
 {
 name:'gluten',
