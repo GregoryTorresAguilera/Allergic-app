@@ -7,7 +7,8 @@ import RestMap from './pages/RestMap/RestMap';
 import Emergency from './pages/Emergency/Emergency';
 import Favorite from './pages/Favorite/Favorite';
 import Diary from './pages/Diary/Diary';
-import Login from './pages/Login/Login';
+import QrScanner from './components/QrScanner/QrScanner';
+// import LoginPage from './pages/LoginPage/LoginPage';
 
 
 function App() {
@@ -21,7 +22,8 @@ function App() {
           <Route path="/emergency" element={<Emergency />} />
           <Route path="/favorite" element={<Favorite />} />
           <Route path="/diary" element={<Diary />} />
-          <Route path="/login" element={<Login />} />
+          <Route path="/qrscanner" element={<QrScanner />} />
+          {/* <Route path="/login" element={<LoginPage />} /> */}
 
 
           {/* <Route path="characters" element={<CharactersPage />} />
