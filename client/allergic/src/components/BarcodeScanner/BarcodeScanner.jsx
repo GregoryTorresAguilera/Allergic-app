@@ -1,15 +1,21 @@
 import Quagga from 'quagga';
 import { useEffect } from "react"; // ES6
+import { Link } from 'react-router-dom';
 import './BarcodeScanner.scss'
 export function BarcodeScanner () {
     const initBarcode = () => {
         Quagga.init({
             inputStream: {
+                // constraints: {
+                //     width: 318,
+                //     height: 216,
+                    
+                // },
                
                 
                 name: "Live",
                 type: "LiveStream",
-                target: document.querySelector('.c-barcode-scanner')    // Or '#yourElement' (optional)
+                target: document.querySelector(".c-barcode-scanner--video")    // Or '#yourElement' (optional)
             },
             decoder: {
                 readers: ["code_128_reader", "ean_reader",
@@ -31,15 +37,27 @@ export function BarcodeScanner () {
             console.log("Initialization finished. Ready to start");
             Quagga.start();
         });
-        Quagga.onDetected((code) => console.log(code))
+        Quagga.onDetected((code) => +console.log(code))
 
     }
     useEffect(initBarcode, [])
-    return (<div>
+    return (<div className="c-barcode-scanner">
 
+    <div className="c-barcode-scanner-leave">
+      <Link to="/" ><img src="./Images/barcodeLeaveImg.png" alt="Leave Icon"/></Link> 
+    </div>
+
+    <div className="c-barcode-scanner-title">
+    <h2>Escaneando...</h2>
+
+    <h6>Tan solo tienes que centrar el <span>código de barras</span> del producto en el recuadro.</h6>
+
+    </div>
+    
+    <div className="c-barcode-scanner--video">
 
     
-    <div className="c-barcode-scanner"></div>
+    </div>
 
 
 
