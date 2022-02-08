@@ -16,19 +16,25 @@ const HamburguerMenu = () => {
               <span className="line line3"></span>
           </div>
           <ul className="menu-items">
-              <li><a href="#home">Home</a></li>
-              <li><a href="#about">About</a></li>
-              <li><a href="#food">Category</a></li>
-              <li><a href="#food-menu">Menu</a></li>
-              <li><a href="#testimonials">Testimonial</a></li>
-              <li><a href="#contact">Contact</a></li>
+              <li className="menu-items--li"><img className="menu-items--li--img1" src="./Images/HamburguerMenuProfile.png" alt=""/><Link to="/profile">Perfil</Link></li>
+              <li className="menu-items--li"><img className="menu-items--li--img" src="./Images/navBarIconStar.png" alt=""/><Link to="/favorite">Favorito</Link></li>
+              <li className="menu-items--li"><img className="menu-items--li--img" src="./Images/navBarIconDiary.png" alt=""/><Link to="/diary">Diario</Link></li>
+              <li className="menu-items--li"><img className="menu-items--li--img" src="./Images/navBarIconShared.png" alt=""/><Link to="/shared">Compartir</Link></li>
+              <li className="menu-items--li"><img className="menu-items--li--img1" src="./Images/HamburguerMenuTranslate.png" alt=""/><Link to="/translator">Traductor</Link></li>
+              <li className="menu-items--li"><img className="menu-items--li--img1" src="./Images/HamburguerMenuTerms.png" alt=""/><Link to="/terms">Terminos</Link></li>
+              <li className="menu-items--li"><img className="menu-items--li--img1" src="./Images/HamburguerMenuLogOut.png" alt=""/><Link to="/logout">Salir</Link> </li>
           </ul>
       </div>
+  
+  
+
+ 
+  
   </nav>
 
 
 
-
+ 
 
 
 
@@ -51,10 +57,3 @@ const HamburguerMenu = () => {
 
 export default HamburguerMenu;
 
- /* <Link to="/profile"></Link>
-    <Link to="/favorite"></Link>
-    <Link to="/diary"></Link>
-    <Link to="/shared"></Link>
-    <Link to="/translator"></Link>
-    <Link to="/terms"></Link>
-    <Link to="/logout"></Link> */
