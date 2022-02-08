@@ -10,9 +10,9 @@ const userSchema = new mongoose.Schema({
     phone: {type: Number, trim: true, required: true},
     allergen: {type: String, trim: true, required: true}, //Schema.Types.ObjectId, ref: "allergen"
     userImage: {type: String, trim: true },
-    userContact: {
-        name: { type: String, trim: true},
-        phone: { type: Number, trim: true},
+    userSosContact: {
+        sosname: { type: String, trim: true},
+        sosphone: { type: Number, trim: true},
         assurance: {type: String, trim: true}
     //favoritos del scaner aplicar un array que recoja los alimentos scaneados.
     }

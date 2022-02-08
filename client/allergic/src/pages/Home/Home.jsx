@@ -10,8 +10,8 @@ const Home = () => {
 
 <div className="homePage__info">
     
-     {/* <button className="homePage__info__btn"><HamburguerMenu/> </button>  */}
-    <button className="homePage__info__btn" ><img src="./Images/homeButtonHamburguer.png" alt="hamburguer button"/></button>
+     <button className="homePage__info__btn"><HamburguerMenu/> </button> 
+    {/* <button className="homePage__info__btn" ><img src="./Images/homeButtonHamburguer.png" alt="hamburguer button"/></button> */}
     <button className="homePage__info__btn"><img src="./Images/homeButtonInfo.png" alt="info button"/></button>
     
     </div>
