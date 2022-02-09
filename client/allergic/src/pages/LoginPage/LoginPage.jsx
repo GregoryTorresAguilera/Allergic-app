@@ -12,6 +12,7 @@ export default function LoginPage () {
             localStorage.setItem('token', res.data.token)
             localStorage.setItem('user', JSON.stringify(res.data.user))
             setJwt(res.data.token);
+            console.log("prueba")
         })
     }
 
@@ -20,13 +21,13 @@ export default function LoginPage () {
             {/* register your input into the hook by invoking the "register" function */}
             <label htmlFor="email">Email</label>
             <input  id="email" defaultValue="contacto@abelcabezaroman.com"
-                   {...register("email",{ required: true, pattern: /^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$/ })}/>
+                   {...register("email",{ required: true, pattern: /^(([^<>()[]\.,;:\s@"]+(.[^<>()[]\.,;:\s@"]+)*)|(".+"))@(([[0-9]{1,3}.[0-9]{1,3}.[0-9]{1,3}.[0-9]{1,3}])|(([a-zA-Z-0-9]+.)+[a-zA-Z]{2,}))$/ })}/>
             {/* include validation with required or other standard HTML validation rules */}
             <label htmlFor="password">Password</label>
             <input  id="password" type="password" defaultValue={'ABCedf123'}
                    {...register("password",{
                        required: true,
-                       pattern: /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d]{8,}$/
+                       pattern: /^(?=.[a-z])(?=.[A-Z])(?=.[0-9])(?=.[!@#$%^&*_=+-]).{8,12}$/
                    })}/> {/* errors will return when field validation fails  */}
             {/*{errors.exampleRequired && <span>This field is required</span>}*/}
 
