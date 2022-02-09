@@ -6,9 +6,10 @@ const foodSchema = new Schema(
   {
     name: { type: String, required: true  },
     img: { type: String, required: true },
-    traces:[{ type: mongoose.Types.ObjectId, ref: 'Allergen'}],
-    allergens: [{ type: mongoose.Types.ObjectId, ref: 'Allergen'}],
+    traces:[{ type: mongoose.Types.ObjectId, ref: 'allergen'}],
+    allergen: [{ type: mongoose.Types.ObjectId, ref: 'allergen'}],
     barcode: { type: Number}
+    //arreglada la query//
 
   },
   {

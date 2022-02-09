@@ -16,7 +16,7 @@ const postNewFood = async (req, res, next) => {
         return next(setError(500, 'Food not saved'))
     }
 }
-
+//es con la query//
 const getAllFoods = async (req, res, next) => {
     try {
         const foodDB = await Food.find().populate('allergen')

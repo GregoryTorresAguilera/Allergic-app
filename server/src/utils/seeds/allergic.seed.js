@@ -78,7 +78,7 @@ mongoose
     useUnifiedTopology: true,
   })
   .then(async () => {
-    const allAllergens = await AllergenSchema.find();
+    const allAllergen = await AllergenSchema.find();
     if (allAllergen.length) {
       await AllergenSchema.collection.drop();
     }

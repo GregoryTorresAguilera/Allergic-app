@@ -8,14 +8,21 @@ const userSchema = new mongoose.Schema({
     email: { type: String, trim: true, required: true, unique: true },
     password: { type: String, trim: true, required: true },
     phone: {type: Number, trim: true, required: true},
-    allergen: {type: String, trim: true, required: true}, //Schema.Types.ObjectId, ref: "allergen"
-    userImage: {type: String, trim: true },
-    userSosContact: {
+    allergen:[{ type: mongoose.Types.ObjectId, ref: 'allergen', default:""}],
+    traces:[ {type: mongoose.Types.ObjectId, ref: 'allergen', default:""}],
+    fav: [{ type: mongoose.Types.ObjectId, ref: 'Food', default:""}],
+    img: {type: String, trim: true },
+    contact: {
         sosname: { type: String, trim: true},
         sosphone: { type: Number, trim: true},
         assurance: {type: String, trim: true}
-    //favoritos del scaner aplicar un array que recoja los alimentos scaneados.
-    }
+    
+    },
+    daylist:[{
+        // product: {type: mongoose.Types.ObjectId, ref:""}, //revisar
+        date: {type: String, default: Date.now()},
+        note: {type: String, default:""}
+    }]
 }, { timestamps: true })
 
 userSchema.pre("save", function (next) {
