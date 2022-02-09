@@ -1,15 +1,15 @@
-.c-barcode-scanner{
+.c-qr-scanner{
     
     height: 50%;
     display:flex;
     flex-direction: column;
     justify-content: center;
     align-items:center;
-    
+  
 
     &-leave{
         width: 100%;
-        
+       
         display: flex;
         justify-content: flex-end;
         
@@ -65,7 +65,9 @@
     align-items:center;
 
         video{
+       
         width: 80%;
+        height: 100%;
         border: 10px solid #595F65;
         border-radius: 10px;
         }
@@ -80,8 +82,4 @@
     }
     
   
-
-
-
 }
-

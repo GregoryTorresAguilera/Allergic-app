@@ -7,9 +7,14 @@ import RestMap from './pages/RestMap/RestMap';
 import Emergency from './pages/Emergency/Emergency';
 import Favorite from './pages/Favorite/Favorite';
 import Diary from './pages/Diary/Diary';
+<<<<<<< HEAD
 import Register from './pages/Register/Register';
 
 /* import Login from './pages/Login/Login'; */
+=======
+
+// import LoginPage from './pages/LoginPage/LoginPage';
+>>>>>>> cbde35e621d4d488254c459bc343f5dc52fcfd69
 
 
 function App() {
@@ -23,17 +28,17 @@ function App() {
           <Route path="/emergency" element={<Emergency />} />
           <Route path="/favorite" element={<Favorite />} />
           <Route path="/diary" element={<Diary />} />
+<<<<<<< HEAD
           <Route path="/register" element={<Register />}/>
          
 
          
+=======
+          {/* <Route path="/login" element={<LoginPage />} /> */}
+>>>>>>> cbde35e621d4d488254c459bc343f5dc52fcfd69
 
 
-          {/* <Route path="characters" element={<CharactersPage />} />
-          <Route path="characters/:id" element={<CharacterDetailPage />} />
-          <Route path="houses" element={<HousesPage />} />
-          <Route path="houses/:id" element={<HouseDetailPage />} />
-          <Route path="chronology" element={<ChronologyPage />} /> */}
+     
         </Routes>
 
      </Router>
