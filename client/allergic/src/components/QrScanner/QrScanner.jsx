@@ -4,8 +4,8 @@ import { Link } from 'react-router-dom';
 import './QrScanner.scss'
 
 const previewStyle = {
-    height: 100,
-    width: 267,
+    
+    
 }
 
 const QrScanner = () => {
