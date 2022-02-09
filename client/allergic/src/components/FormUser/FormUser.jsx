@@ -1,80 +1,48 @@
-import React, { useState } from "react";
+import React from 'react';
+import { useForm } from "react-hook-form";
+import { API } from "../../shared/services/api";
 
-const FormUser = (props) => {
-  const [state, setState] = useState(INITIAL_STATE);
 
-  const submitFormUser = (ev) => {
-    ev.preventDefault();
-    const { userImage, name, email, phone, password } = state;
-    if (!userImage || !name || !email || !phone || !password) {
-      console.log("Debes rellenar todos los campos");
-      return;
+export default function FormUser () {
+    const { register, handleSubmit } = useForm();
+
+    const onSubmit = formData => {
+        API.post('register', formData).then(res => {
+            console.log('Register user',);
+        })
     }
 
-    console.log(state);
-    props.addProfile(state);
-    setState(INITIAL_STATE);
-  };
-  const handleInput = (ev) => {
-    const { name, value } = ev.target;
-    setState({ ...state, [name]: value });
-  };
 
-  return (
-    <form onSubmit={submitFormUser}>
-      <fieldset>
-        <div style={{ padding: "20px" }}>
-          {state.userImage ? (
-            <img src={state.userImage} alt={state.name} width="200px" />
-          ) : null}
-        </div>
-        <label>
-          <p>Nombre</p>
-          <input
-            type="text"
-            name="name"
-            value={state.name}
-            onChange={handleInput}
-          />
-        </label>
-        <label>
-          <p>Dirección e.mail</p>
-          <input
-            type="text"
-            name="email"
-            value={state.email}
-            onChange={handleInput}
-          />
-        </label>
-        <label>
-          <p>Móvil</p>
-          <input
-            type="text"
-            name="phone"
-            value={state.phone}
-            onChange={handleInput}
-          />
-        </label>
-        <label>
-          <p>Password</p>
-          <input
-            type="text"
-            name="password"
-            value={state.password}
-            onChange={handleInput}
-          />
-        </label>
-      </fieldset>
-    </form>
-  );
-};
+    return (
+        <form onSubmit={handleSubmit(onSubmit)}>
 
-const INITIAL_STATE = {
-  image:"",  
-  name: "",
-  email: "",
-  phone: "",
-  password: "",
-};
+            {/* register your input into the hook by invoking the "register" function */}
+            <label htmlFor="name">Nombre</label>
+            <input id="name" defaultValue="tu nombre"
+                   {...register("name", { required: true })}/>
 
-export default FormUser;
+            {/*<input name="role" id="role" defaultValue="admin"*/}
+            {/*       ref={register({ required: true })}/>*/}
+
+            <label htmlFor="email">Email</label>
+            <input id="email" defaultValue="usuario@email.com"
+                   {...register("email", { required: true, pattern: /^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$/ })}/>
+
+            {/*<label htmlFor="username">Username</label>*/}
+            {/*<input name="username" id="username" defaultValue="abelcabezaroman"*/}
+            {/*       ref={register({ required: true, minLength: 4 })}/>*/}
+
+            {/* include validation with required or other standard HTML validation rules */}
+            <label htmlFor="password">Password</label>
+            <input name="password" id="password" type="password" defaultValue="Tu usuario"
+                   {...register("password", {
+                       required: true,
+                       pattern: /^(?=.[a-z])(?=.[A-Z])(?=.[0-9])(?=.[!@#$%^&*_=+-]).{8,12}$/
+                   })}/>
+            {/* errors will return when field validation fails  */}
+            {/*{errors.exampleRequired && <span>This field is required</span>}*/}
+
+            <input type="submit" value="Register"/>
+        </form>
+    )
+}
