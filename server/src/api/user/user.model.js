@@ -7,17 +7,9 @@ const userSchema = new mongoose.Schema({
     name: { type: String, trim: true, required: true },
     email: { type: String, trim: true, required: true, unique: true },
     password: { type: String, trim: true, required: true },
-<<<<<<< HEAD
     phone: {type: Number, trim: true },
     allergen: {type: String, trim: true,}, //Schema.Types.ObjectId, ref: "allergen"
     userImage: {type: String, trim: true },
-=======
-    phone: {type: Number, trim: true, required: true},
-    allergen:[{ type: mongoose.Types.ObjectId, ref: 'allergen', default:""}],
-    traces:[ {type: mongoose.Types.ObjectId, ref: 'allergen', default:""}],
-    fav: [{ type: mongoose.Types.ObjectId, ref: 'Food', default:""}],
-    img: {type: String, trim: true },
->>>>>>> cbde35e621d4d488254c459bc343f5dc52fcfd69
     contact: {
         sosname: { type: String, trim: true},
         sosphone: { type: Number, trim: true},

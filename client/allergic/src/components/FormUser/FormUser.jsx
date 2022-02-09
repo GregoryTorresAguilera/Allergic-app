@@ -8,7 +8,7 @@ export default function FormUser () {
 
     const onSubmit = formData => {
         API.post('register', formData).then(res => {
-            console.log('Register user',);
+            console.log('Register user', res);
         })
     }
 
@@ -26,7 +26,7 @@ export default function FormUser () {
 
             <label htmlFor="email">Email</label>
             <input id="email" defaultValue="usuario@email.com"
-                   {...register("email", { required: true  })}/>
+                   {...register("email", { required: true,pattern: /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/  })}/>
 
             {/*<label htmlFor="username">Username</label>*/}
             {/*<input name="username" id="username" defaultValue="abelcabezaroman"*/}
@@ -37,7 +37,7 @@ export default function FormUser () {
             <input name="password" id="password" type="password" defaultValue="Jf12345!"
                    {...register("password", {
                        required: true,
-                       pattern: /^(?=.[a-z])(?=.[A-Z])(?=.[0-9])(?=.[!@#$%^&*_=+-]).{8,12}$/
+                       pattern: /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%^&*_=+-]).{8,12}$/
                    })}/>
             {/* errors will return when field validation fails  */}
             {/*{errors.exampleRequired && <span>This field is required</span>}*/}

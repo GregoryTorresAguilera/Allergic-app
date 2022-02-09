@@ -6,19 +6,11 @@
     "@testing-library/jest-dom": "^5.16.1",
     "@testing-library/react": "^12.1.2",
     "@testing-library/user-event": "^13.5.0",
-<<<<<<< HEAD
     "axios": "^0.25.0",
     "quagga": "^0.12.1",
     "react": "^16.8.0",
     "react-dom": "^17.0.2",
     "react-hook-form": "^7.26.1",
-=======
-    "cors": "^2.8.5",
-    "quagga": "^0.12.1",
-    "react": "^16.8.0",
-    "react-dom": "^17.0.2",
-    "react-qr-scanner": "^1.0.0-alpha.8",
->>>>>>> cbde35e621d4d488254c459bc343f5dc52fcfd69
     "react-router-dom": "^6.2.1",
     "react-scripts": "5.0.0",
     "sass": "^1.49.7",
