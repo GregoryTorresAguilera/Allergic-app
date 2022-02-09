@@ -7,10 +7,10 @@ const userSchema = new mongoose.Schema({
     name: { type: String, trim: true, required: true },
     email: { type: String, trim: true, required: true, unique: true },
     password: { type: String, trim: true, required: true },
-    phone: {type: Number, trim: true, required: true},
-    allergen: {type: String, trim: true, required: true}, //Schema.Types.ObjectId, ref: "allergen"
+    phone: {type: Number, trim: true },
+    allergen: {type: String, trim: true,}, //Schema.Types.ObjectId, ref: "allergen"
     userImage: {type: String, trim: true },
-    userSosContact: {
+    contact: {
         sosname: { type: String, trim: true},
         sosphone: { type: Number, trim: true},
         assurance: {type: String, trim: true}

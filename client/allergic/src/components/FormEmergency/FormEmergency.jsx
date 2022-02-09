@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 
-const FormEmergency = (props) => {
+const FormEmergency = (props, setForm) => {
   const [state, setState] = useState(INITIAL_STATE);
 
   const submitFormEmergency = (ev) => {
@@ -19,7 +19,7 @@ const FormEmergency = (props) => {
     const { name, value } = ev.target;
     setState({ ...state, [name]: value });
   };
-
+//button de siguiente , onClick() => setForm(3)
   return (
     <form onSubmit={submitFormEmergency}>
       <fieldset>
@@ -51,6 +51,7 @@ const FormEmergency = (props) => {
           />
         </label>
       </fieldset>
+      <button onClick={setForm(3)}></button>
     </form>
   );
 };

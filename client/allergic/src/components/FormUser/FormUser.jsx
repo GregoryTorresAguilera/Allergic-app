@@ -26,7 +26,7 @@ export default function FormUser () {
 
             <label htmlFor="email">Email</label>
             <input id="email" defaultValue="usuario@email.com"
-                   {...register("email", { required: true, pattern: /^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$/ })}/>
+                   {...register("email", { required: true  })}/>
 
             {/*<label htmlFor="username">Username</label>*/}
             {/*<input name="username" id="username" defaultValue="abelcabezaroman"*/}
@@ -34,7 +34,7 @@ export default function FormUser () {
 
             {/* include validation with required or other standard HTML validation rules */}
             <label htmlFor="password">Password</label>
-            <input name="password" id="password" type="password" defaultValue="Tu usuario"
+            <input name="password" id="password" type="password" defaultValue="Jf12345!"
                    {...register("password", {
                        required: true,
                        pattern: /^(?=.[a-z])(?=.[A-Z])(?=.[0-9])(?=.[!@#$%^&*_=+-]).{8,12}$/

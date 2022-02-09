@@ -7,6 +7,8 @@ import RestMap from './pages/RestMap/RestMap';
 import Emergency from './pages/Emergency/Emergency';
 import Favorite from './pages/Favorite/Favorite';
 import Diary from './pages/Diary/Diary';
+import Register from './pages/Register/Register';
+
 /* import Login from './pages/Login/Login'; */
 
 
@@ -21,7 +23,10 @@ function App() {
           <Route path="/emergency" element={<Emergency />} />
           <Route path="/favorite" element={<Favorite />} />
           <Route path="/diary" element={<Diary />} />
-         {/*  <Route path="/login" element={<Login />} /> */}
+          <Route path="/register" element={<Register />}/>
+         
+
+         
 
 
           {/* <Route path="characters" element={<CharactersPage />} />
